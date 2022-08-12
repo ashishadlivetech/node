@@ -78,6 +78,9 @@ app.use(
 );
 app.use(bodyParser.json());
 app.use(cors());
+app.get('/', function (request, response) {
+  response.json('done');
+});
 
 app.post('/api/info', function (request, response, next) {
   response.json({
