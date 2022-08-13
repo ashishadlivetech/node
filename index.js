@@ -9,7 +9,7 @@ const bodyParser = require('body-parser');
 const moment = require('moment');
 const cors = require('cors');
 
-const APP_PORT = process.env.APP_PORT;
+const PORT = process.env.APP_PORT;
 const PLAID_CLIENT_ID = process.env.PLAID_CLIENT_ID;
 const PLAID_SECRET = process.env.PLAID_SECRET;
 const PLAID_ENV = process.env.PLAID_ENV || 'sandbox';
@@ -478,8 +478,8 @@ app.use('/api', function (error, request, response, next) {
   response.json(formatError(error.response));
 });
 
-const server = app.listen(APP_PORT, function () {
-  console.log('plaid-quickstart server listening on port ' + APP_PORT);
+const server = app.listen(PORT, function () {
+  console.log('plaid-quickstart server listening on port ' + PORT);
 });
 
 const prettyPrintResponse = (response) => {
