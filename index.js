@@ -14,6 +14,10 @@ const PLAID_CLIENT_ID = process.env.PLAID_CLIENT_ID;
 const PLAID_SECRET = process.env.PLAID_SECRET;
 const PLAID_ENV = process.env.PLAID_ENV || 'sandbox';
 
+const server = app.listen(PORT || 8000, function () {
+  console.log('server listening on port ' + PORT);
+});
+
 // PLAID_PRODUCTS is a comma-separated list of products to use when initializing
 // Link. Note that this list must contain 'assets' in order for the app to be
 // able to create and retrieve asset reports.
@@ -478,9 +482,7 @@ app.use('/api', function (error, request, response, next) {
   response.json(formatError(error.response));
 });
 
-const server = app.listen(PORT, function () {
-  console.log('plaid-quickstart server listening on port ' + PORT);
-});
+
 
 const prettyPrintResponse = (response) => {
   console.log(util.inspect(response.data, { colors: true, depth: 4 }));
