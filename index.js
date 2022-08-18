@@ -478,7 +478,7 @@ app.use('/api', function (error, request, response, next) {
   response.json(formatError(error.response));
 });
 console.log(PORT+'port');
-const server = app.listen(PORT || 8000, function () {
+const server = app.listen(PORT || 8000, '0.0.0.0', function () {
   console.log('server listening on port ' + PORT);
 });
 
